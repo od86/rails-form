@@ -1,13 +1,13 @@
 <h1>Add user</h1>
-<%= form_with model: @user do |form| %>
+<%= form_with url: "/users" do |form| %>
   <div>
     <%= form.label :username, "Name:" %>
-    <%= form.text_field :username, value: "Morty" %>
+    <%= form.text_field :username %>
   </div>
 
   <div>
     <%= form.label :email, "Email:" %>
-    <%= form.email_field :email, placeholder: "something@gmail.com" %>
+    <%= form.email_field :email %>
   </div>
 
   <div>
