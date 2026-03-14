@@ -1,15 +1,18 @@
 <h1>Add user</h1>
-<form accept-charset="UTF-8" action="/users" method="post" data-turbo="false">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= form_with url: "/users" do |form| %>
+  <div>
+    <%= form.label :username, "Name:" %>
+    <%= form.text_field :username %>
+  </div>
 
-  <label for="name">Name:</label>
-  <input type="text" name="user[username]" id="name">
-  
-  <label for="email">Email:</label>
-  <input type="text" name="user[email]" id="email">
+  <div>
+    <%= form.label :email, "Email:" %>
+    <%= form.email_field :email %>
+  </div>
 
-  <label for="password">Password:</label>
-  <input type="password" name="user[password]" id="password">
-
-  <input type="submit" name="Submit" value="Sumit">
-</form>
+  <div>
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password %>
+  </div>
+  <%= form.submit "Submit:" %>
+<% end %>
